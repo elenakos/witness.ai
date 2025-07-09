@@ -34,6 +34,7 @@ def execute_test_case(api, name):
     print(f"Number of records: {len(response.json())}")
     assert len(response.json()) == 2, f"Response has wrong number of records: {len(response.json())} "
     print(response.json()["info"])
-    print("Number of results: {}".format(len(response.json()["results"])))
-    assert len(response.json()["results"]) == 20, f"Response has wrong number of results: {len(response.json()["results"])}"
+    num_of_results = len(response.json()["results"])
+    print("Number of results: {}".format(num_of_results))
+    assert num_of_results == 20, f"Response has wrong number of results: {num_of_results}"
     assert response.json()["results"][0]["name"] == name, f"Response has wrong name: {response.json()['results'][0]['name']}"
