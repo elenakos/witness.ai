@@ -6,7 +6,6 @@ To run/execute:
    % pytest test_api.py -s
 
 '''
-
 import requests
 
 # VARIABLES
