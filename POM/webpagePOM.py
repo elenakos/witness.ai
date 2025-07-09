@@ -7,8 +7,11 @@ class WebPage:
 
     # Elements - labels/ids
     # -------------------------------
-    TITLE = "The Rick and Morty API"
+    PAGE_TITLE = "The Rick and Morty API"
     HOME_LINK = "home page"
+    DOCS_LINK = "Docs"
+    ABOUT_LINK = "About"
+    DOCS_HEADING = "Documentation"
 
     def __init__(self, page: Page):
         self.page = page
@@ -35,3 +38,17 @@ class WebPage:
     def is_text_visible(self, text):
         logging.info('Verify if a text visible')
         return self.page.get_by_text(text).is_visible()
+
+    def is_link_visible(self, link_name):
+        logging.info('Verify if a link visible')
+        return self.page.get_by_role("link", name=link_name).is_visible()
+
+    def verify_text_on_page(page: Page, text_to_verify: str):
+        print("Verify this text on page: " + text_to_verify)
+        content = page.locator("body").text_content()
+        if text_to_verify in content:
+            print("--> Text found!")
+            return True
+        else:
+            print("--> Text not found!")
+            return False
