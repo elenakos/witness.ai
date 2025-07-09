@@ -1,9 +1,11 @@
 This repo contains examples for testing https://rickandmortyapi.com/ website using [Playwright](https://playwright.dev/)  with its [Python](https://github.com/microsoft/playwright-python) implementation
 and API testing using python/[pytest](https://docs.pytest.org/en/stable/).
 
-API documentation can be found [here](https://rickandmortyapi.com/documentation).
+API documentation for this website can be found [here](https://rickandmortyapi.com/documentation).
 
-All test cases are located in `/Tests` folder, while UI testing methods and elements definitions are in `/POM` folder.
+All test cases are located in `/Tests` folder, and UI testing methods and elements definitions are in `/POM` folder.
+
+This project uses GitHub Actions to automatically run all tests with any code updates. The configuration is defined in `.github/workflows/run_tests.yml`.
 
 
 # How to find elements on a web page
