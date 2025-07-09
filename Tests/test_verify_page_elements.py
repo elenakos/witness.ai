@@ -29,6 +29,6 @@ def test_verify_navigation_to_docs_page(pagePOM: WebPage, page: Page):
     print('\n*** TC: Verify the navigation to Docs page')
     pagePOM.click_on_link(pagePOM.DOCS_LINK)
     page.wait_for_load_state('networkidle')
-    time.sleep(page.TIMEOUT)
+    time.sleep(pagePOM.TIMEOUT)
     print('\nVerify the DOCS page heading')
     assert pagePOM.is_heading_visible(pagePOM.DOCS_HEADING), "DOCS heading is not visible"

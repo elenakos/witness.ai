@@ -3,7 +3,7 @@ This is an example of using python/request to test API
 
 To run/execute:
    Open a terminal and execute this command:
-   % pytest api_tests.py -s
+   % pytest test_api.py -s
 
 '''
 

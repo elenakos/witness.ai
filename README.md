@@ -1,6 +1,10 @@
-This repo contains a sample solution for testing https://rickandmortyapi.com/ website using [Playwright](https://playwright.dev/)  and its [Python](https://github.com/microsoft/playwright-python) implementation.
+This repo contains examples for testing https://rickandmortyapi.com/ website using [Playwright](https://playwright.dev/)  with its [Python](https://github.com/microsoft/playwright-python) implementation
+and API testing using python/[pytest](https://docs.pytest.org/en/stable/).
 
-More information about Playwright can be found [here](https://playwright.dev).
+API documentation can be found [here](https://rickandmortyapi.com/documentation).
+
+All test cases are located in `/Tests` folder, while UI testing methods and elements definitions are in `/POM` folder.
+
 
 # How to find elements on a web page
 
@@ -31,11 +35,17 @@ pytest Tests/test_verify_page_elements.py
 ```
 
 To execute a specific test case:
-```angular2html
+```
 pytest -s -k test_verify_navigation_to_docs_page
 ```
 
 To generate reports, install `pip install pytest-html` and use `--html` option while running scripts: 
 ```
 pytest --html=Results/verify.html Tests/test_verify_page_elements.py
+```
+
+# How to Execute API tests
+To execute only API test cases and see the logs:
+```
+pytest test_api.py -s
 ```
