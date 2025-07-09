@@ -1,5 +1,4 @@
 from playwright.sync_api import Page
-import logging
 
 class WebPage:
     # Variables
@@ -21,7 +20,7 @@ class WebPage:
         print('Navigate to a page {}'.format(url))
         self.page.goto(url)
 
-    def return_page_title(self):
+    def get_page_title(self):
         return self.page.title()
 
     def click_on_link(self, link_name):

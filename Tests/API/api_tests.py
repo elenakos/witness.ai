@@ -31,10 +31,10 @@ def test_get_response_episode():
 def execute_test_case(api, name):
     url = URL + api
     response = requests.get(url)
-    assert response.status_code == 200
+    assert response.status_code == 200, f"Status code is wrong: {response.status_code}"
     print(f"Number of records: {len(response.json())}")
-    assert len(response.json()) == 2
+    assert len(response.json()) == 2, f"Response has wrong number of records: {len(response.json())} "
     print(response.json()["info"])
     print("Number of results: {}".format(len(response.json()["results"])))
-    assert len(response.json()["results"]) == 20
-    assert response.json()["results"][0]["name"] == name
+    assert len(response.json()["results"]) == 20, f"Response has wrong number of results: {len(response.json()["results"])}"
+    assert response.json()["results"][0]["name"] == name, f"Response has wrong name: {response.json()['results'][0]['name']}"

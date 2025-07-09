@@ -14,16 +14,16 @@ def pagePOM(page: Page, request):
 
 def test_verify_home_page_has_correct_title(pagePOM: WebPage):
     print('\n*** TC: Verify the home page title')
-    page_title = pagePOM.return_page_title()
-    assert pagePOM.PAGE_TITLE in page_title
+    page_title = pagePOM.get_page_title()
+    assert pagePOM.PAGE_TITLE in page_title, f"Page title is incorrect: {page_title}"
 
 def test_verify_home_page_has_docs_link(pagePOM: WebPage):
     print('\n*** TC: Verify the home page contains Docs link')
-    assert pagePOM.is_link_visible(pagePOM.DOCS_LINK)
+    assert pagePOM.is_link_visible(pagePOM.DOCS_LINK), "Docs link is not visible"
 
 def test_verify_home_page_has_about_link(pagePOM: WebPage):
     print('\n*** TC: Verify the home page contains About link')
-    assert pagePOM.is_link_visible(pagePOM.ABOUT_LINK)
+    assert pagePOM.is_link_visible(pagePOM.ABOUT_LINK), "About link is not visible"
 
 def test_verify_navigation_to_docs_page(pagePOM: WebPage, page: Page):
     print('\n*** TC: Verify the navigation to Docs page')
@@ -31,4 +31,4 @@ def test_verify_navigation_to_docs_page(pagePOM: WebPage, page: Page):
     page.wait_for_load_state('networkidle')
     time.sleep(page.TIMEOUT)
     print('\nVerify the DOCS page heading')
-    assert pagePOM.is_heading_visible(pagePOM.DOCS_HEADING)
+    assert pagePOM.is_heading_visible(pagePOM.DOCS_HEADING), "DOCS heading is not visible"
