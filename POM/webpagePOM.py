@@ -4,6 +4,7 @@ import logging
 class WebPage:
     # Variables
     URL = "https://rickandmortyapi.com/"
+    TIMEOUT = 3
 
     # Elements - labels/ids
     # -------------------------------
@@ -17,30 +18,30 @@ class WebPage:
         self.page = page
 
     def navigate_to_page(self, url=URL):
-        logging.info('Navigate to a page')
+        print('Navigate to a page {}'.format(url))
         self.page.goto(url)
 
     def return_page_title(self):
         return self.page.title()
 
     def click_on_link(self, link_name):
-        logging.info('Click on a link')
+        print('Click on a link')
         self.page.get_by_role("link", name=link_name).first.click()
 
     def is_heading_visible(self, heading_name):
-        logging.info('Verify if a heading visible')
+        print('Verify if a heading visible')
         return self.page.get_by_role("heading", name=heading_name).is_visible()
 
     def is_image_visible(self, image_name):
-        logging.info('Verify if an image visible')
+        print('Verify if an image visible')
         return self.page.get_by_role("img", name=image_name).is_visible()
 
     def is_text_visible(self, text):
-        logging.info('Verify if a text visible')
+        print('Verify if a text visible')
         return self.page.get_by_text(text).is_visible()
 
     def is_link_visible(self, link_name):
-        logging.info('Verify if a link visible')
+        print('Verify if a link visible')
         return self.page.get_by_role("link", name=link_name).is_visible()
 
     def verify_text_on_page(page: Page, text_to_verify: str):
