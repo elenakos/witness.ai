@@ -45,7 +45,7 @@ pytest --html=Results/verify.html Tests/test_verify_page_elements.py
 ```
 
 # How to Execute API tests
-To execute only API test cases and see the logs:
+To execute API test cases only and see the logs:
 ```
-pytest test_api.py -s
+pytest -s test_api.py
 ```
