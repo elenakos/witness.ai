@@ -6,6 +6,7 @@ To run/execute:
    % pytest test_api.py -s
 
 '''
+import pytest
 import requests
 
 # VARIABLES
@@ -14,20 +15,14 @@ CHARACTER = "character"
 LOCATION = "location"
 EPISODE = "episode"
 
-# TESTS
-def test_get_response_character():
-    print("\n*** TC: Verify GET/character returns records")
-    execute_test_case(CHARACTER, "Rick Sanchez")
 
-def test_get_response_location():
-    print("\n*** TC: Verify GET/location returns records")
-    execute_test_case(LOCATION, "Earth (C-137)")
-
-def test_get_response_episode():
-    print("\n*** TC: Verify GET/episode returns records")
-    execute_test_case(EPISODE, "Pilot")
-
-def execute_test_case(api, name):
+@pytest.mark.parametrize("test_case_name, api, name", [
+    ("Verify CHARACTER returns results", CHARACTER, "Rick Sanchez"),
+    ("Verify LOCATION returns results", LOCATION, "Earth (C-137)"),
+    ("Verify EPISODE returns results", EPISODE, "Pilot"),
+])
+def test_execute_test_case(test_case_name, api, name):
+    print("\n*** TC: " + test_case_name)
     url = URL + api
     response = requests.get(url)
     assert response.status_code == 200, f"Status code is wrong: {response.status_code}"
